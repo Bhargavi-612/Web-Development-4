@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="b1" onclick="func1()">Names of all companies</button>
+        <button id="b2" onclick="func2()">Names of companies that started after 1987</button>
+        <button id="b3" onclick="func5()">Address</button>
+        <script>
+            const companies = [
+                { name: "Company One", category: "Finance", start: 1981, end: 2004 },
+                { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+                { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+                { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+                { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+                { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+                { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+                { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+                { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+                ];
+                const person = {
+                    name: "Costas",
+                    address: {
+                        street: "Lalaland 12"
+                    }
+                };
+            function func1()
+            {
+                var e=document.createElement("p");
+                e.innerText="Names of all companies:";
+                document.body.appendChild(e);
+                companies.forEach(func3);
+                function func3(item,index)
+                {
+                    var x=document.createElement("div");
+                    x.innerText=item.name;
+                    document.body.appendChild(x);
+                }
+            }
+            function func2()
+            {
+                var e=document.createElement("p");
+                e.innerText="Names of all companies that started after 1987:";
+                document.body.appendChild(e);
+                companies.forEach(func4);
+                function func4(item,index)
+                {
+                    var x=document.createElement("div");
+                    let y=item.start;
+                    if(y>=1987)
+                    {
+                        x.innerText=item.name;
+                        document.body.appendChild(x);
+                    }
+                }
+            }
+            function func5()
+            {
+                var e=document.createElement("p");
+                e.innerText="Address: "+person.address.street;
+                document.body.appendChild(e);
+            }
+        </script>
+    </body>
+</html>
